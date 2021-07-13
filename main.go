@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "test_api_crud/routers"
-
+	_ "github.com/jorgec815/test_api_crud/routers"
+	"github.com/udistrital/utils_oas/customerrorv2"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
@@ -21,14 +21,15 @@ func main() {
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{"PUT", "PATCH", "GET", "POST", "OPTIONS", "DELETE"},
 		AllowHeaders: []string{"Origin", "x-requested-with",
-		  "content-type",
-		  "accept",
-		  "origin",
-		  "authorization",
-		  "x-csrftoken"},
+			"content-type",
+			"accept",
+			"origin",
+			"authorization",
+			"x-csrftoken"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
-	  }))
+	}))
+	beego.ErrorController(&customerrorv2.CustomErrorController{})
 	beego.Run()
 }
 

@@ -1,7 +1,9 @@
+module github.com/jorgec815/test_api_crud
 
-module test_api_crud
+go 1.16
 
-go 1.13
-
-require github.com/astaxie/beego v1.12.1
-require github.com/smartystreets/goconvey v1.6.4
+require (
+	github.com/astaxie/beego v1.12.3
+	github.com/lib/pq v1.10.2
+	github.com/udistrital/utils_oas v0.0.0-20210421184521-1d702419e42a
+)
